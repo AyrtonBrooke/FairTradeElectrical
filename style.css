@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+}  
+
+  
+  h1, h2, h3, .navbar-brand, .nav-link {
+    font-family: 'Lato', sans-serif;
+  }
+  
+
+/* Start with transparent background */
+#mainNavbar {
+    background-color: transparent;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  
+  /* Default text colors */
+  #mainNavbar .nav-link,
+  #mainNavbar .navbar-brand {
+    color: black; /* dark text when transparent */
+    transition: color 0.3s ease; /* smooth color transition */
+    text-decoration: none; /* no underline by default */
+    position: relative; /* Required for positioning the pseudo-element */
+  }
+  
+  /* Scrolled navbar: dark background + white text */
+  .scrolled-navbar {
+    background-color: rgba(33, 37, 41, 0.9); /* dark semi-transparent */
+    backdrop-filter: blur(5px); /* optional glass effect */
+  }
+  
+  /* Scrolled navbar text */
+  .scrolled-navbar .nav-link,
+  .scrolled-navbar .navbar-brand {
+    color: white;
+  }
+  
+  /* Disable hover underline effect on the phone number */
+  #mainNavbar .nav-item .nav-link[aria-disabled="true"]::before {
+    content: none; /* No underline */
+    color: #000;
+  }
+
+    /* Disable hover underline effect on the phone number */
+    #mainNavbar .nav-item .nav-link[aria-disabled="true"]:hover {
+        content: none; /* No underline */
+        color: #000;
+      }
+  
+  /* Hover effect */
+  #mainNavbar .nav-link:hover {
+    color: #fd310d; /* Red color on hover */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  /* Sliding underline effect on hover */
+  #mainNavbar .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Line thickness */
+    background-color: #fd310d; /* Red underline on hover */
+    bottom: 0;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease; /* Sliding effect */
+  }
+  
+  /* On hover: change color and show sliding underline */
+  #mainNavbar .nav-link:hover::before,
+  #mainNavbar .navbar-brand:hover::before {
+    width: 100%;
+    left: 0; /* Position the line properly */
+  }
+  
+  /* Scrolled navbar hover effect */
+  .scrolled-navbar .nav-link:hover,
+  .scrolled-navbar .navbar-brand:hover {
+    color: #fd0d0d; /* Same red on hover even when scrolled */
+  }
+  
